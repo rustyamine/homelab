@@ -1,0 +1,13 @@
+services:
+  pihole:
+    image: "pihole/pihole:latest"
+    container_name: pihole
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - "pihole_data:/etc/pihole"
+    environment:
+      - "TZ=Africa/Algiers"
+      - "WEBPASSWORD=CHANGE_ME"
+volumes:
+  pihole_data:
