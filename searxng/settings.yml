@@ -1,0 +1,34 @@
+# Personal SearXNG instance (private, localhost only)
+use_default_settings:
+  engines:
+    # Whitelist: only these engines are kept, everything else is dropped.
+    # Edit this list to match the engines you actually want.
+    keep_only:
+      - duckduckgo
+      - brave
+      - startpage
+      - wikipedia
+      - github
+      - stackoverflow
+      - arch linux wiki
+
+general:
+  instance_name: "SearXNG"
+
+search:
+  safe_search: 0
+  autocomplete: duckduckgo
+  formats:
+    - html
+    - json
+
+server:
+  # secret_key is read from the SEARXNG_SECRET environment variable
+  limiter: false          # private instance, no public bot protection needed
+  image_proxy: true
+
+redis:
+  url: redis://redis:6379/0
+
+ui:
+  static_use_hash: true

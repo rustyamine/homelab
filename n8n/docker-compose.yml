@@ -1,0 +1,18 @@
+services:
+  n8n:
+    image: "docker.n8n.io/n8nio/n8n"
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    volumes:
+      - "n8n_data:/home/node/.n8n"
+    environment:
+      - "TZ=Africa/Algiers"
+      - "GENERIC_TIMEZONE=Africa/Algiers"
+      - "N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}"
+      # No HTTPS on localhost, so the secure cookie must be off.
+      # Remove this line if you put n8n behind a reverse proxy with HTTPS.
+      - "N8N_SECURE_COOKIE=false"
+volumes:
+  n8n_data:
