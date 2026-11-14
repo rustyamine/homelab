@@ -7,7 +7,7 @@ services:
     volumes:
       - "jellyfin_cache:/cache"
       - "jellyfin_config:/config"
-      - "/mnt/windows/Fusion/Media:/media"
+      - "${MEDIA_PATH:?Set MEDIA_PATH in .env}:/media"
     devices:
       - "/dev/dri/renderD128:/dev/dri/renderD128:rwm"
 volumes:

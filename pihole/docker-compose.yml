@@ -8,6 +8,7 @@ services:
       - "pihole_data:/etc/pihole"
     environment:
       - "TZ=Africa/Algiers"
-      - "WEBPASSWORD=CHANGE_ME"
+      - "FTLCONF_webserver_api_password=${PIHOLE_PASSWORD:?Set PIHOLE_PASSWORD in .env}"
 volumes:
   pihole_data:
+    name: pihole_data
